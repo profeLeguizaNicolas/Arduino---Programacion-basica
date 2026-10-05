@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Imagenes/imagen1.png" type="image/x-icon">
+    <title>Arduino - Programacion basica.</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Arduino.</h1>
+
+    <div class="center">
+        <img src="Imagenes/imagen1.png" alt="">
+    </div>
+
+    <h2>Programación básica.</h2>
+
+    <p>
+        La programación en <span class="celeste">Arduino</span> es una herramienta fundamental para aquellos interesados en la electrónica y el desarrollo de proyectos interactivos. <spanl class="celeste">Arduino</spanl> es una plataforma de hardware libre basada en una sencilla placa con un microcontrolador que permite controlar componentes electrónicos como sensores, motores, luces, entre otros. A través del lenguaje de programación de <span class="celeste">Arduino</span>, que está basado en <code class="gris">C/C++</code>, es posible escribir código que le indica al microcontrolador cómo interectuar con el entorno.
+    </p>
+    <br>
+    <h4>Estructura básica:</h4>
+    
+    <p>
+        En la programación de <span class="celeste">Arduino</span>, la estructura básica de un programa <code class="gris"><i>o sketch</i></code> esta compuesto principalmente por dos funciones esenciales: <code class="gris"><span class="verde">setup</span><span class="dorado">()</span></code> y <code class="gris"><span class="verde">loop</span><span class="dorado">()</span></code>. Estas funciones determinan el comportamiento del microcontrolador y son fundamentales para cualquier proyecto en <span class="celeste">Arduino</span>
+    </p>
+<pre><code class="cpp">    <span class="celeste">void</span> <span class="verde">setup</span> <span class="dorado">(){</span>
+    
+
+    <span class="dorado">}</span>
+    <span class="celeste">void</span> <span class="verde">loop</span><span class="dorado">(){</span>
+    
+    <span class="dorado">}</span></code></pre>
+    <br>
+    <span style="text-align: center; display: flex; justify-content: center;"><i><u>Sintaxis de la estructura.</u></i></span>
+    <br>
+    <hr>
+    <br>
+    <h4><u>Función <span class="verde">setup</span><span class="dorado">()</span></u>.</h4>
+    <p>
+        La función <span class="verde">setup</span><span class="dorado">()</span> se ejecuta una sola vez al inicio del programa. Aquí es donde se configuran los aspectos iniciales del hardware, como la configuración de los pines, la comunicación serial o cualquier otro ajuste que el sistema deba realizar antes de empezar a funcionar de forma continua.
+    </p>
+    <b><u>Ejemplo</u>:</b>
+    <br>
+<pre><code class="cpp">     <span class="celeste">void</span> <span class="verde">setup</span><span class="dorado">(){</span>
+        <span class="naranja">pinMode</span><span class="dorado">( <span class="violeta">13</span>, <span class="celeste">OUTPUT</span>);</span>    <span class="gris">// Configura el pin 13 como salida.</span>
+        <span class="naranja">Serial</span>.<span class="naranja">begin</span><span class="dorado">(<span class="celeste">9600</span>);</span>
+    <span class="dorado">}</span></code></pre> <br>
+    <hr>
+    <br>
+    <h4><u>Función <span class="verde">loop</span><span class="dorado">()</span></u>.</h4>
+    <p>
+        La función <code class="gris"><span class="verde">loop</span><span class="dorado">()</span></code> se ejecuta de manera continua mientras el programa esté en marcha. Aquí es donde se coloca el código que debe ejecutarse repetidamente, como leer sensores, controlar motores, encender y apagar Led's entre otras tareas.
+    </p>
+    <b>Ejemplo</b>
+<pre><code class="cpp">    <span class="celete">void</span> <span class="verde">loop</span><span class="dorado">(){</span>
+    <span class="naranja">digitalWrite</span><span class="dorado">(<span class="violeta">13</span>,<span class="celeste">HIGH</span>);     <span class="gris">// Enciende el LED conectado al pin 13.</span>
+    <span class="naranja">delay</span><span class="dorado">(<span class="violeta">1000</span>);    <span class="gris">// Espera 1 segundo.</span></span>
+    <span class="naranja">digitalWrite</span><span class="dorado">(<span class="violeta">13</span>,<span class="celeste">LOW</span>);      <span class="gris">// Apaga el LED.</span>
+    <span class="naranja">delay</span><span class="dorado">(<span class="violeta">1000</span>);</span>     <span class="gris">// Espera otro segundo.</span>
+    <span class="dorado">}</span></code></pre>
+    <br>
+    <hr>
+    <br>
+    <h4><u>Funciones básicas en <span class="celeste">Arduino</span></u>.</h4>
+    <fieldset>
+        <b><span class="naranja">pinMode</span><span class="dorado">(<span class="violeta">pin</span>,<span class="celeste">modo</span>)</span></b><br>
+        <p>
+            Configura un pin específico como entrada <span class="celeste">INPUT</span> o salida <span class="celeste">OUTPUT</span>.
+        </p>
+        <br>
+        <b style="display: flex; justify-content: center;"><u>Ejemplo</u>:</b><br>
+<pre><code class="cpp">    <span class="celeste">void</span> <span class="verde">setup</span><span class="dorado">(){</span>
+        <span class="naranja">pinMode</span><span class="dorado">(<span class="violeta">8</span>,<span class="celeste">INPUT</span>);</span>    <span class="gris">// Configura el pin 8 como entrada.</span>
+    <span class="dorado">}</span></code></pre>
+    <br>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    <fieldset>
+        <b><span class="naranja">digitalWrite</span><span class="dorado">(<span class="violeta">pin</span>,<span class="celeste">valor</span>)</span></b><br>
+        <p>
+            Envía un valor <span class="celeste">HIGH</span>(alto) o <span class="celeste">LOW</span> (bajo) a un pin de salida. Esto es comúnmente utilizado para encender o apagar dispositivos como Led's o relés.
+        </p>
+        <br>
+        <b style="display: flex; justify-content: center;"><u>Ejemplo</u>:</b><br>
+<pre><code class="cpp">    <span class="celeste">void</span> <span class="verde">loop</span><span class="dorado">(){</span>
+        <span class="naranja">digitalWrite</span><span class="dorado">(<span class="violeta">13</span>,<span class="celeste">HIGH</span>);</span>    <span class="gris">// Envía una señar alta al pin 13.</span>
+    <span class="dorado">}</span></code></pre>
+    <br>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    <fieldset>
+        <b><span class="naranja">digitalRead</span><span class="dorado">(<span class="violeta">pin</span>)</span></b><br>
+        <p>
+            Lee el valor de un pin configurado como entrada, devolviendo <span class="celeste">HIGH</span> o <span class="celeste">LOW</span>.  
+        </p>
+        <br>
+        <b style="display: flex; justify-content: center;"><u>Ejemplo</u>:</b><br>
+<pre><code class="cpp">    <span class="verde">int</span> estado = <span class="naranja">digitalRead</span><span class="dorado">(<span class="violeta">8</span>);</span>    <span class="gris">// Lee el valor del pin 8.</span></code></pre>
+    <br>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    <fieldset>
+        <b><span class="naranja">delay</span><span class="dorado">(<span class="celeste">ms</span>)</span></b><br>
+        <p>
+            Pause la ejecución del programa por un período de tiempo determinado en milisegundos.  
+        </p>
+        <br>
+        <b style="display: flex; justify-content: center;"><u>Ejemplo</u>:</b><br>
+<pre><code class="cpp">    <span class="verde">int</span> estado = <span class="naranja">delay</span><span class="dorado">(<span class="violeta">500</span>);</span>    <span class="gris">// Espera 500 milisegundos (medio segundo).</span></code></pre>
+    <br>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    
+    <fieldset>
+        <legend><b><u>Ejercicios</u>:</b></legend>
+        <ol>
+            <li>
+                <p>
+                    Se debe encender y apagar un led utilizando el pin <span class="violeta">13</span> de la placa Arduino. El Led debe encenderse durante un segundo y luego apagarase durante dos segundos.
+                </p>
+                <br>
+                <hr>
+            </li>
+            <li>
+                <p>
+                    Un botón conectectado al pin <span class="violeta">8</span> controle el encendido de un led en el pin <span class="violeta">13</span>. El led debe encenderse cuando el botón sea presionado y apagarse cuando no lo esté.
+                </p>
+                <br>
+                <hr>
+            </li>
+            <li>
+                <p>
+                    Se debe crear un sistema donde un led solo se encienda si dos botones, conectados a diferentes pines, son presionados al mismo tiempo. Si uno o ambos boton no están presionados, el led debe permanecer apagado.
+                </p>
+                <br>
+                <hr>
+            </li>
+            <li>
+                <p>
+                    Un led debe parpadear siguiendo un patrón específico: encender durante <span class="naranja">500</span> milisegundos, apagarse durante <span class="naranja">300</span> milisegundos, encenderse nuevamente durante <span class="naranja">1000</span> milisegundos y apagarse durante span.naranja{2000} milisegundos antes de repetir el ciclo.
+                </p>
+            </li>
+        </ol>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+</body>
+
+</html>
